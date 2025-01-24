@@ -137,36 +137,33 @@ async function scraper() {
     let response = await axios.get(url);
     let data = response.data;
     console.log(data);
-    if ((data.message = "user does not exist")) {
-      alert("Enter correct username");
-    } else {
-      // Show the stats section once data is loaded
-      all.classList.remove("hidden");
 
-      // Extracting required data
-      let totaleasy = data.totalEasy;
-      let totalmedium = data.totalMedium;
-      let totalhard = data.totalHard;
-      let total = data.totalQuestions;
-      let easy = data.easySolved;
-      let medium = data.mediumSolved;
-      let hard = data.hardSolved;
-      let totalSolved = data.totalSolved;
+    // Show the stats section once data is loaded
+    all.classList.remove("hidden");
 
-      // Animate the stats counts
-      animateNumber(acceptanceRate, data.acceptanceRate, "%");
-      animateNumber(globalRank, data.ranking);
-      animateNumber(easyStat, easy);
-      animateNumber(mediumStat, medium);
-      animateNumber(hardStat, hard);
-      animateNumber(totalStat, totalSolved);
+    // Extracting required data
+    let totaleasy = data.totalEasy;
+    let totalmedium = data.totalMedium;
+    let totalhard = data.totalHard;
+    let total = data.totalQuestions;
+    let easy = data.easySolved;
+    let medium = data.mediumSolved;
+    let hard = data.hardSolved;
+    let totalSolved = data.totalSolved;
 
-      // Animate circle progress bars
-      animateCircle(easyCircle, easy, totaleasy, "#3498DB", "#AED6F1"); // Blue
-      animateCircle(mediumCircle, medium, totalmedium, "#F39C12", "#FAD7A0"); // Yellow
-      animateCircle(hardCircle, hard, totalhard, "#E74C3C", "#F5B7B1"); // Red
-      animateCircle(totalCircle, totalSolved, total, "#2ECC71", "#A9DFBF"); // Green
-    }
+    // Animate the stats counts
+    animateNumber(acceptanceRate, data.acceptanceRate, "%");
+    animateNumber(globalRank, data.ranking);
+    animateNumber(easyStat, easy);
+    animateNumber(mediumStat, medium);
+    animateNumber(hardStat, hard);
+    animateNumber(totalStat, totalSolved);
+
+    // Animate circle progress bars
+    animateCircle(easyCircle, easy, totaleasy, "#3498DB", "#AED6F1"); // Blue
+    animateCircle(mediumCircle, medium, totalmedium, "#F39C12", "#FAD7A0"); // Yellow
+    animateCircle(hardCircle, hard, totalhard, "#E74C3C", "#F5B7B1"); // Red
+    animateCircle(totalCircle, totalSolved, total, "#2ECC71", "#A9DFBF"); // Green
   } catch (error) {
     console.log("error", error);
   }
