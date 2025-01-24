@@ -136,6 +136,7 @@ async function scraper() {
     let url = `https://leetcode-stats-api.herokuapp.com/${inp}`;
     let response = await axios.get(url);
     let data = response.data;
+    console.log(data);
     if ((data.message = "user does not exist")) {
       alert("Enter correct username");
     } else {
